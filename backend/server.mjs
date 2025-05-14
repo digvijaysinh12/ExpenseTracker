@@ -8,6 +8,7 @@ import otpRoutes from "./routes/otpRoutes.js";
 import morgan from "morgan";
 import connectDb from "./config/connectDb.js";
 import transactionRoute from "./routes/transactionRoute.js"
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -23,6 +24,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+app.use(cookieParser);
 
 // Database connection
 connectDb();

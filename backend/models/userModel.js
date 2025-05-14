@@ -13,6 +13,12 @@ const userSchema = new mongoose.Schema({
         unique:true,
         trim:true
     },
+    username: {
+  type: String,
+  unique: true,  // Keep uniqueness if needed
+  required: false // This allows null/undefined values
+}
+,
     password:{
         type:String,
         required:[true, 'password is required'],

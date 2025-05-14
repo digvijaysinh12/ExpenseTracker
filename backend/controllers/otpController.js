@@ -1,4 +1,3 @@
-// controllers/otpController.js
 import { setOtp } from '../utils/otpStore.js';
 import mailSender from '../utils/mailSender.js';
 import User from '../models/userModel.js';
@@ -23,10 +22,8 @@ const sendOTP = async (req, res) => {
     }
 
     const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    setOtp(email, otp);
 
-    setOtp(email, otp); // store it in memory
-
-    // send the email
     const subject = "OTP Verification Code";
     const body = `<h2>Hello!</h2><p>Your OTP is:</p><h1>${otp}</h1><p>This OTP will expire in 5 minutes.</p>`;
     await mailSender(email, subject, body);
